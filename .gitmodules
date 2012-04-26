@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/vim-javascript-syntax"]
 	path = .vim/bundle/vim-javascript-syntax
 	url = git@github.com:zmmbreeze/vim-javascript-syntax.git
+[submodule ".vim/bundle/vim-powerline"]
+	path = .vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git

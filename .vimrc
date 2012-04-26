@@ -31,6 +31,7 @@ filetype plugin indent on
 "    -> Tabularize
 "    -> NERDTree
 "    -> Tagbar
+"    -> Powerline
 "
 "  Revisions:
 "     > 0.1: Added revisions ;)
@@ -126,7 +127,7 @@ syntax enable "Enable syntax hl
 
 " Set font according to system
 if MySys() == "mac"
-  set gfn=Inconsolata:h16
+  set gfn=Inconsolata-dz\ for\ Powerline:h14
   set shell=/bin/bash
 elseif MySys() == "windows"
   set gfn=Bitstream\ Vera\ Sans\ Mono:h10
@@ -616,3 +617,12 @@ nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : 'jsctags'
 \ }
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Powerline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("gui_running")
+    let g:Powerline_symbols = 'fancy'
+    set fillchars+=stl:\ ,stlnc:\
+endif
