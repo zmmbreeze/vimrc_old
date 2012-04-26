@@ -30,6 +30,7 @@ filetype plugin indent on
 "    -> Zencoding
 "    -> Tabularize
 "    -> NERDTree
+"    -> Tagbar
 "
 "  Revisions:
 "     > 0.1: Added revisions ;)
@@ -598,8 +599,16 @@ if exists(":Tabularize")
 endif
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>nt :NERDTree<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F8> :TagbarToggle<CR> 
+let g:tagbar_type_javascript = {
+    \ 'ctagsbin' : 'jsctags'
+\ }
