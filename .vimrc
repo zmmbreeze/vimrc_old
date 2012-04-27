@@ -139,14 +139,14 @@ endif
 if has("gui_running")
   set guioptions-=T
   set t_Co=256
-  set background=dark
+  "set background=dark
   colorscheme Tomorrow-Night
   "-Eighties
   "molokai
   set nonu
 else
-  colorscheme molokai
-  set background=dark
+  colorscheme Tomorrow-Night
+  "set background=dark
 
   set nonu
 endif
@@ -158,6 +158,9 @@ catch
 endtry
 
 set ffs=unix,dos,mac "Default file types
+
+" 去掉背景的设置
+hi Normal ctermbg=NONE
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
