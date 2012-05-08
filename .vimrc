@@ -32,6 +32,7 @@ filetype plugin indent on
 "    -> NERDTree
 "    -> Tagbar
 "    -> Powerline
+"    -> jquery
 "
 "  Revisions:
 "     > 0.1: Added revisions ;)
@@ -145,7 +146,7 @@ if has("gui_running")
   "molokai
   set nonu
 else
-  colorscheme molokai
+  colorscheme Tomorrow-Night
   set background=dark
 
   set nonu
@@ -188,6 +189,7 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set smarttab
+set number
 
 "设置当前行和列高亮
 :se cursorline
@@ -206,7 +208,7 @@ set wrap "Wrap lines
 
 nmap <tab> 		v>
 nmap <s-tab> 	v<
-vmap <tab> 		>gv 
+vmap <tab> 		>gv
 vmap <s-tab> 	<gv
 
 "tab setting
@@ -542,6 +544,7 @@ function! JavaScriptFold2()
     setl foldtext=FoldText()
 endfunction
 
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS  
 
 """"""""""""""""""""""""""""""
 " => MRU plugin
@@ -613,9 +616,9 @@ map <leader>nt :NERDTree<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR> 
+nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_javascript = {
-    \ 'ctagsbin' : 'jsctags'
+    \ 'ctagsbin': 'jsctags'
 \ }
 
 
@@ -625,4 +628,10 @@ let g:tagbar_type_javascript = {
 if has("gui_running")
     let g:Powerline_symbols = 'fancy'
     set fillchars+=stl:\ ,stlnc:\
-endif
+    endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => jquery
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufRead,BufNewFile *.js set ft=javascript syntax=jquery
