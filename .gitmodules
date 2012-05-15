@@ -25,3 +25,9 @@
 [submodule ".vim/bundle/vim-powerline"]
 	path = .vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule ".vim/bundle/mango.vim"]
+	path = .vim/bundle/mango.vim
+	url = git://github.com/goatslacker/mango.vim.git
+[submodule ".vim/bundle/desert.vim"]
+	path = .vim/bundle/desert.vim
+	url = https://github.com/fugalh/desert.vim.git

@@ -141,14 +141,14 @@ if has("gui_running")
   set guioptions-=T
   set t_Co=256
   "set background=dark
-  colorscheme Tomorrow-Night
+  colorscheme desert
   "-Eighties
   "molokai
   set nonu
 else
-  colorscheme Tomorrow-Night
-  "set background=dark
-
+  set background=dark
+  syntax on
+  color desert256
   set nonu
 endif
 
