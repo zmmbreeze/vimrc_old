@@ -593,7 +593,7 @@ let g:user_zen_settings = {
 \    }
 \  }
 \}
-let g:user_zen_expandabbr_key = '<c-e>'
+let g:user_zen_expandabbr_key = '<C-e>'
 let g:use_zen_complete_tag = 1
 
 
@@ -677,12 +677,14 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 " <CR>: close popup and save indent. 
 inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
 " <TAB>: completion. 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
+" 启用空格选中
+inoremap <expr><space>  pumvisible() ? neocomplcache#close_popup() . "\<SPACE>" : "\<SPACE>"
 " <C-h>, <BS>: close popup and delete backword char. 
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>" 
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>" 
 inoremap <expr><C-y>  neocomplcache#close_popup() 
-inoremap <expr><C-e>  neocomplcache#cancel_popup() 
+"inoremap <expr><C-e>  neocomplcache#cancel_popup() 
 
 " AutoComplPop like behavior. 
 "let g:neocomplcache_enable_auto_select = 1 
