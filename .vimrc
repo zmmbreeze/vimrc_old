@@ -33,6 +33,7 @@ filetype plugin indent on
 "    -> Tagbar
 "    -> Powerline
 "    -> neocomplcache
+"    -> jsbeautify
 "
 "  Revisions:
 "     > 0.1: Added revisions ;)
@@ -128,7 +129,7 @@ syntax enable "Enable syntax hl
 
 " Set font according to system
 if MySys() == "mac"
-  set gfn=Inconsolata-dz\ for\ Powerline:h14
+  set gfn=Inconsolata-dz\ for\ Powerline:h13
   set shell=/bin/bash
 elseif MySys() == "windows"
   set gfn=Bitstream\ Vera\ Sans\ Mono:h10
@@ -731,3 +732,17 @@ function! ToggleFocusMode()
   endif
 endfunc
 nnoremap <F1> :call ToggleFocusMode()<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" jsbeautify
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsbeautify = {'indent_size': 4, 'indent_char': ' '}
+"let g:htmlbeautify = {'indent_size': 4, 'indent_char': ' ', 'max_char': 78, 'brace_style': 'expand', 'unformatted': ['a', 'sub', 'sup', 'b', 'i', 'u']}
+"let g:cssbeautify = {'indent_size': 4, 'indent_char': ' '}
+" for javascript
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+"autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+"autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
