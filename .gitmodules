@@ -43,6 +43,3 @@
 [submodule ".vim/bundle/jsbeautify"]
 	path = .vim/bundle/jsbeautify
 	url = https://github.com/maksimr/vim-jsbeautify.git
-[submodule ".vim/bundle/jshint"]
-	path = .vim/bundle/jshint
-	url = git@github.com:zmmbreeze/jshint.git
