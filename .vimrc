@@ -149,7 +149,7 @@ if has("gui_running")
 else
   set background=dark
   syntax on
-  color wombat256
+  color desert256
   set nonu
 endif
 
