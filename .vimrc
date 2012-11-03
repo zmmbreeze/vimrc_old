@@ -138,20 +138,24 @@ elseif MySys() == "linux"
   set shell=/bin/bash
 endif
 
-if has("gui_running")
-  set guioptions-=T
-  set t_Co=256
+"if has("gui_running")
+  "set guioptions-=T
+  "set t_Co=256
   "set background=dark
   colorscheme lucius
   "-Eighties
   "molokai
-  set nonu
-else
-  set background=dark
-  syntax on
-  color desert256
-  set nonu
-endif
+  "set nonu
+"else
+  "set background=dark
+  "syntax on
+  "colorscheme twilight
+  "set nonu
+"endif
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 set encoding=utf8
 try
