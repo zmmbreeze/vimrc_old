@@ -31,7 +31,6 @@ filetype plugin indent on
 "    -> Tabularize
 "    -> NERDTree
 "    -> Tagbar
-"    -> Powerline
 "    -> neocomplcache
 "    -> jsbeautify
 "
@@ -129,20 +128,26 @@ syntax enable "Enable syntax hl
 
 " Set font according to system
 if MySys() == "mac"
-  set gfn=Inconsolata-dz\ for\ Powerline:h13
+  set gfn=Inconsolata:h13
   set shell=/bin/bash
 elseif MySys() == "windows"
   set gfn=Bitstream\ Vera\ Sans\ Mono:h10
 elseif MySys() == "linux"
-  set gfn=Monospace\ 10
+  set gfn=Inconsolata\ 12
   set shell=/bin/bash
+endif
+
+if has("gui_running")
+  set guioptions-=T
+  set t_Co=256
+  set nonu
 endif
 
 "if has("gui_running")
   "set guioptions-=T
   "set t_Co=256
   "set background=dark
-  colorscheme lucius
+  "colorscheme lucius
   "-Eighties
   "molokai
   "set nonu
@@ -155,7 +160,7 @@ endif
 
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme lucius
 
 set encoding=utf8
 try
@@ -628,15 +633,6 @@ nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_javascript = {
     \ 'ctagsbin': 'jsctags'
 \ }
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Powerline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("gui_running")
-    let g:Powerline_symbols = 'fancy'
-    set fillchars+=stl:\ ,stlnc:\
-    endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
