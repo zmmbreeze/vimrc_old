@@ -30,7 +30,7 @@ filetype plugin indent on
 "    -> Zencoding
 "    -> Tabularize
 "    -> NERDTree
-"    -> Tagbar
+"    -> Taglist-plus
 "    -> neocomplcache
 "    -> jsbeautify
 "
@@ -536,7 +536,6 @@ au FileType python map <buffer> <leader>D ?def
 """"""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
-"au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
 
@@ -627,12 +626,9 @@ map <leader>nt :NERDTree<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tagbar
+" => Taglist-plus
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
-let g:tagbar_type_javascript = {
-    \ 'ctagsbin': 'jsctags'
-\ }
+nmap <F8> :TlistToggle<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -746,3 +742,4 @@ autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 "autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 "autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+"
