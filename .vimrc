@@ -143,24 +143,23 @@ if has("gui_running")
   set nonu
 endif
 
-"if has("gui_running")
+if has("gui_running")
   "set guioptions-=T
   "set t_Co=256
   "set background=dark
-  "colorscheme lucius
+  colorscheme lucius
   "-Eighties
   "molokai
-  "set nonu
-"else
+  set nonu
+else
   "set background=dark
-  "syntax on
-  "colorscheme twilight
-  "set nonu
-"endif
+  syntax on
+  colorscheme desert256
+  set nonu
+endif
 
 syntax enable
 set background=dark
-colorscheme lucius
 
 set encoding=utf8
 try
@@ -213,7 +212,7 @@ set list
 set listchars=tab:>\ ,trail:_
 
 set lbr
-set tw=500
+set tw=80
 
 set ai "Auto indent
 set si "Smart indet
