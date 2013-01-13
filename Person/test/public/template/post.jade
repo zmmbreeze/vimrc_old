@@ -1,0 +1,8 @@
+extends layout
+
+append stylesheet
+	link(href='/public/stylesheet/markdown.css', rel='stylesheet')
+
+append content
+	div.markdown
+		| !{entry.content}
