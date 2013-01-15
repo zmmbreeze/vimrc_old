@@ -1,3 +1,2 @@
 /*jshint undef:true, browser:true, noarg:true, curly:true, regexp:true, newcap:true, trailing:true, noempty:true, regexp:false, evil:true, funcscope:true, iterator:true, loopfunc:true, multistr:true, boss:true, eqnull:true, eqeqeq:true, undef:true, laxbreak:true */
-/*global $:false, baidu:false, alb:false, jn:false, er:false, ui:false,
- * goog:false, UC_LOGIN_POST_URL:false, UC_LOGIN_SUCCESS_URL:false, UC_APP_ID:false, UC_LOGIN_FAIL_URL:false, UC_LOGIN_VERIFYCODE_URL:false, alert:false */
+/*global $:false, baidu:false, alb:false, jn:false, er:false, ui:false, app:false, goog:false, base:false, UC_LOGIN_POST_URL:false, UC_LOGIN_SUCCESS_URL:false, UC_APP_ID:false, UC_LOGIN_FAIL_URL:false, UC_LOGIN_VERIFYCODE_URL:false, alert:false */
