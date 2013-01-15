@@ -128,7 +128,8 @@ syntax enable "Enable syntax hl
 
 " Set font according to system
 if MySys() == "mac"
-  set gfn=Inconsolata:h13
+  set gfn=Monaco:h13
+  set linespace=2
   set shell=/bin/bash
 elseif MySys() == "windows"
   set gfn=Bitstream\ Vera\ Sans\ Mono:h10
