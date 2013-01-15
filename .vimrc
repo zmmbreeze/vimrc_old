@@ -214,6 +214,7 @@ set listchars=tab:>\ ,trail:_
 
 set lbr
 set tw=80
+autocmd FileType html set tw=100000
 
 set ai "Auto indent
 set si "Smart indet
