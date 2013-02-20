@@ -21,7 +21,7 @@ filetype plugin indent on
 "    -> Editing mappings
 "
 "    -> Cope
-"    -> Omni complete functions
+"    -> YouCompleteMe
 "    -> Python section
 "    -> JavaScript section
 "    -> MRU
@@ -497,10 +497,24 @@ map <leader>p :cp<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Omni complete functions
+" => YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
+let g:ycm_filetypes_to_completely_ignore = {
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'text' : 1,
+      \}
+"let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
+let g:ycm_key_invoke_completion = '<c-q>'
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.'],
+  \   'objc' : ['->', '.'],
+  \   'cpp,objcpp' : ['->', '.', '::'],
+  \   'perl,php' : ['->'],
+  \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir' : ['.'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -557,7 +571,7 @@ function! JavaScriptFold2()
     setl foldtext=FoldText()
 endfunction
 
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS  
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS  
 
 """"""""""""""""""""""""""""""
 " => MRU plugin
@@ -624,111 +638,6 @@ endif
 " => NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>nt :NERDTree<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Taglist-plus
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F8> :TlistToggle<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => neocomplcache
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Disable AutoComplPop. 
-let g:acp_enableAtStartup = 0 
-" Use neocomplcache. 
-let g:neocomplcache_enable_at_startup = 1 
-" Use smartcase. 
-let g:neocomplcache_enable_smart_case = 1 
-" Use camel case completion. 
-let g:neocomplcache_enable_camel_case_completion = 1 
-" Use underbar completion. 
-let g:neocomplcache_enable_underbar_completion = 1 
-" Set minimum syntax keyword length. 
-let g:neocomplcache_min_syntax_length = 3 
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*' 
-
-" Define dictionary. 
-let g:neocomplcache_dictionary_filetype_lists = { 
-    \ 'default' : '', 
-    \ 'vimshell' : $HOME.'/.vimshell_hist', 
-    \ 'scheme' : $HOME.'/.gosh_completions' 
-    \ } 
-
-" Define keyword. 
-if !exists('g:neocomplcache_keyword_patterns') 
-    let g:neocomplcache_keyword_patterns = {} 
-endif 
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*' 
-
-" Plugin key-mappings. 
-imap <C-k>     <Plug>(neocomplcache_snippets_expand) 
-smap <C-k>     <Plug>(neocomplcache_snippets_expand) 
-inoremap <expr><C-g>     neocomplcache#undo_completion() 
-inoremap <expr><C-l>     neocomplcache#complete_common_string() 
-
-" SuperTab like snippets behavior. 
-"imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>" 
-
-" Recommended key-mappings. 
-" <CR>: close popup and save indent. 
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
-" <TAB>: completion. 
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
-" 启用空格选中
-inoremap <expr><space>  pumvisible() ? neocomplcache#close_popup() . "\<SPACE>" : "\<SPACE>"
-" <C-h>, <BS>: close popup and delete backword char. 
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>" 
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>" 
-inoremap <expr><C-y>  neocomplcache#close_popup() 
-"inoremap <expr><C-e>  neocomplcache#cancel_popup() 
-
-" AutoComplPop like behavior. 
-"let g:neocomplcache_enable_auto_select = 1 
-
-" Shell like behavior(not recommended). 
-"set completeopt+=longest 
-"let g:neocomplcache_enable_auto_select = 1 
-"let g:neocomplcache_disable_auto_complete = 1 
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>" 
-"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
-
-" Enable omni completion. 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS 
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags 
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete 
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
-
-" Enable heavy omni completion. 
-if !exists('g:neocomplcache_omni_patterns') 
-let g:neocomplcache_omni_patterns = {} 
-endif 
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::' 
-"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete 
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-
-
-
-function! ToggleFocusMode()
-  if (&foldcolumn != 12)
-    set laststatus=0
-    set numberwidth=10
-    set foldcolumn=12
-    set noruler
-    hi FoldColumn ctermbg=none
-    hi LineNr ctermfg=0 ctermbg=none
-    hi NonText ctermfg=0
-  else
-    set laststatus=2
-    set numberwidth=4
-    set foldcolumn=0
-    set ruler
-    execute 'colorscheme ' . g:colors_name
-  endif
-endfunc
-nnoremap <F1> :call ToggleFocusMode()<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
