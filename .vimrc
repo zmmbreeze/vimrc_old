@@ -33,6 +33,7 @@ filetype plugin indent on
 "    -> Taglist-plus
 "    -> neocomplcache
 "    -> jsbeautify
+"    -> Syntastic
 "
 "  Revisions:
 "     > 0.1: Added revisions ;)
@@ -500,10 +501,10 @@ map <leader>p :cp<cr>
 " => YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_filetypes_to_completely_ignore = {
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'text' : 1,
-      \}
+  \ 'notes' : 1,
+  \ 'markdown' : 1,
+  \ 'text' : 1,
+  \}
 "let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
 let g:ycm_key_invoke_completion = '<c-q>'
 let g:ycm_semantic_triggers =  {
@@ -511,7 +512,7 @@ let g:ycm_semantic_triggers =  {
   \   'objc' : ['->', '.'],
   \   'cpp,objcpp' : ['->', '.', '::'],
   \   'perl,php' : ['->'],
-  \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir' : ['.'],
+  \   'cs,java,d,vim,ruby,python,perl6,scala,vb,elixir' : ['.'],
   \   'lua' : ['.', ':'],
   \   'erlang' : [':'],
   \}
@@ -653,3 +654,16 @@ autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for css or scss
 "autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 "
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_mode_map = {
+    \ 'mode': 'active',
+    \ 'active_filetypes': ['php', 'html', 'javascript'],
+    \ 'passive_filetypes': ['css'] }
+" Ignore line-too-long errors with flake8
+let g:syntastic_python_checker_args = '--ignore=E501'
