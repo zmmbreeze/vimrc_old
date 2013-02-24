@@ -142,19 +142,10 @@ endif
 if has("gui_running")
   set guioptions-=T
   set t_Co=256
-  set nonu
-endif
-
-if has("gui_running")
-  "set guioptions-=T
-  "set t_Co=256
-  "set background=dark
   colorscheme nazca
-  "-Eighties
-  "molokai
+  set transparency=8
   set nonu
 else
-  "set background=dark
   syntax on
   colorscheme desert256
   set nonu
