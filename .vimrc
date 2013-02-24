@@ -149,7 +149,7 @@ if has("gui_running")
   "set guioptions-=T
   "set t_Co=256
   "set background=dark
-  colorscheme lucius
+  colorscheme nazca
   "-Eighties
   "molokai
   set nonu
