@@ -713,6 +713,6 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_mode_map = {
     \ 'mode': 'active',
     \ 'active_filetypes': ['php', 'html', 'javascript'],
-    \ 'passive_filetypes': ['css'] }
+    \ 'passive_filetypes': ['css', 'less'] }
 " Ignore line-too-long errors with flake8
 let g:syntastic_python_checker_args = '--ignore=E501'
