@@ -1,0 +1,389 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <C-Space> 
+inoremap <expr> <Up> pumvisible() ? "\" : "\<Up>"
+inoremap <expr> <Down> pumvisible() ? "\" : "\<Down>"
+inoremap <expr> <S-Tab> pumvisible() ? "\" : "\<S-Tab>"
+inoremap <Plug>ZenCodingAnchorizeSummary :call zencoding#anchorizeURL(1)a
+inoremap <Plug>ZenCodingAnchorizeURL :call zencoding#anchorizeURL(0)a
+inoremap <Plug>ZenCodingRemoveTag :call zencoding#removeTag()a
+inoremap <Plug>ZenCodingSplitJoinTagInsert :call zencoding#splitJoinTag()a
+inoremap <Plug>ZenCodingToggleComment :call zencoding#toggleComment()a
+inoremap <Plug>ZenCodingImageSize :call zencoding#imageSize()a
+inoremap <Plug>ZenCodingPrev :call zencoding#moveNextPrev(1)
+inoremap <Plug>ZenCodingNext :call zencoding#moveNextPrev(0)
+inoremap <Plug>ZenCodingBalanceTagOutwardInsert :call zencoding#balanceTag(-1)
+inoremap <Plug>ZenCodingBalanceTagInwardInsert :call zencoding#balanceTag(1)
+inoremap <Plug>ZenCodingExpandWord u:call zencoding#expandAbbr(1)a
+inoremap <Plug>ZenCodingExpandAbbr u:call zencoding#expandAbbr(0)a
+inoremap <silent> <SNR>33_yrrecord =YRRecord3()
+nmap  <Plug>ZenCodingExpandNormal
+vmap  <Plug>ZenCodingExpandVisual
+map  h
+snoremap <silent> 	 i<Right>=TriggerSnippet()
+xmap 	 >gv
+nmap 	 v>
+map <NL> j
+map  k
+map  l
+nnoremap <silent>  :YRReplace '1', 'p'
+nnoremap <silent>  :YRReplace '-1', 'P'
+snoremap  b<BS>
+nmap A <Plug>ZenCodingAnchorizeSummary
+nmap a <Plug>ZenCodingAnchorizeURL
+nmap k <Plug>ZenCodingRemoveTag
+nmap j <Plug>ZenCodingSplitJoinTagNormal
+vmap m <Plug>ZenCodingMergeLines
+nmap / <Plug>ZenCodingToggleComment
+nmap i <Plug>ZenCodingImageSize
+nmap N <Plug>ZenCodingPrev
+nmap n <Plug>ZenCodingNext
+vmap D <Plug>ZenCodingBalanceTagOutwardVisual
+nmap D <Plug>ZenCodingBalanceTagOutwardNormal
+vmap d <Plug>ZenCodingBalanceTagInwardVisual
+nmap d <Plug>ZenCodingBalanceTagInwardNormal
+nmap , <Plug>ZenCodingExpandWord
+map   /
+vnoremap <silent> # :call VisualSearch('b')
+vnoremap $e `>a"`<i"
+vnoremap $q `>a'`<i'
+vnoremap $$ `>a"`<i"
+vnoremap $3 `>a}`<i{
+vnoremap $2 `>a]`<i[
+vnoremap $1 `>a)`<i(
+snoremap % b<BS>%
+snoremap ' b<BS>'
+vnoremap <silent> * :call VisualSearch('f')
+nnoremap ,d :YcmShowDetailedDiagnostic
+map ,nt :NERDTree
+map ,bb :cd ..
+map ,pp :setlocal paste!
+map ,q :e ~/buffer
+noremap ,m mmHmt:%s///ge'tzt'm
+map ,f :MRU
+map ,s? z=
+map ,sa zg
+map ,sp [s
+map ,sn ]s
+map ,ss :setlocal spell!
+map ,p :cp
+map ,n :cn
+map ,cc :botright cope
+map ,cd :cd %:p:h
+map ,tm :tabmove
+map ,tc :tabclose
+map ,te :tabedit
+map ,tn :tabnew
+map ,ba :1,300 bd!
+map ,bd :Bclose
+map <silent> , :noh
+map ,g :vimgrep // **/*.<Left><Left><Left><Left><Left><Left><Left>
+map ,e :e! ~/.vimrc
+nmap ,w :w!
+nmap 0 ^
+vmap 0 ^
+nmap @ :YRMapsMacro
+cmap ½ $
+imap ½ $
+xnoremap <silent> P :YRPaste 'P', 'v'
+nnoremap <silent> P :YRPaste 'P'
+xmap S <Plug>VSurround
+smap SO :call RestoreSession()
+snoremap U b<BS>U
+snoremap \ b<BS>\
+snoremap ^ b<BS>^
+snoremap ` b<BS>`
+nmap cs <Plug>Csurround
+xnoremap <silent> d :YRDeleteRange 'v'
+nmap ds <Plug>Dsurround
+nmap gx <Plug>NetrwBrowseX
+nnoremap <silent> gp :YRPaste 'gp'
+nnoremap <silent> gP :YRPaste 'gP'
+xmap gS <Plug>VgSurround
+vnoremap <silent> gv :call VisualSearch('gv')
+xnoremap <silent> p :YRPaste 'p', 'v'
+nnoremap <silent> p :YRPaste 'p'
+xnoremap <silent> s :echoerr 'surround.vim: Visual mode s has been removed in favor of S'
+nmap ssa :call SaveSession()
+xnoremap <silent> x :YRDeleteRange 'v'
+xnoremap <silent> y :YRYankRange 'v'
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <BS> b<BS>
+snoremap <silent> <S-Tab> i<Right>=BackwardsSnippet()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+nnoremap <Plug>ZenCodingAnchorizeSummary :call zencoding#anchorizeURL(1)
+nnoremap <Plug>ZenCodingAnchorizeURL :call zencoding#anchorizeURL(0)
+nnoremap <Plug>ZenCodingRemoveTag :call zencoding#removeTag()
+nnoremap <Plug>ZenCodingSplitJoinTagNormal :call zencoding#splitJoinTag()
+vnoremap <Plug>ZenCodingMergeLines :call zencoding#mergeLines()
+nnoremap <Plug>ZenCodingToggleComment :call zencoding#toggleComment()
+nnoremap <Plug>ZenCodingImageSize :call zencoding#imageSize()
+nnoremap <Plug>ZenCodingPrev :call zencoding#moveNextPrev(1)
+nnoremap <Plug>ZenCodingNext :call zencoding#moveNextPrev(0)
+vnoremap <Plug>ZenCodingBalanceTagOutwardVisual :call zencoding#balanceTag(-2)
+nnoremap <Plug>ZenCodingBalanceTagOutwardNormal :call zencoding#balanceTag(-1)
+vnoremap <Plug>ZenCodingBalanceTagInwardVisual :call zencoding#balanceTag(2)
+nnoremap <Plug>ZenCodingBalanceTagInwardNormal :call zencoding#balanceTag(1)
+nnoremap <Plug>ZenCodingExpandWord :call zencoding#expandAbbr(1)
+nnoremap <Plug>ZenCodingExpandNormal :call zencoding#expandAbbr(3)
+vnoremap <Plug>ZenCodingExpandVisual :call zencoding#expandAbbr(2)
+nnoremap <silent> <SNR>33_yrrecord :call YRRecord3()
+nnoremap <silent> <Plug>SurroundRepeat .
+map <C-Space> ?
+xmap <S-Tab> <gv
+nmap <S-Tab> v<
+cnoremap  <Home>
+imap  <Plug>ZenCodingExpandAbbr
+cnoremap  <End>
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+inoremap <expr> 	 pumvisible() ? "\" : "\	"
+cnoremap  
+cnoremap  <Down>
+cnoremap  <Up>
+inoremap <silent> 	 =ShowAvailableSnips()
+imap  <Plug>Isurround
+imap A <Plug>ZenCodingAnchorizeSummary
+imap a <Plug>ZenCodingAnchorizeURL
+imap k <Plug>ZenCodingRemoveTag
+imap j <Plug>ZenCodingSplitJoinTagInsert
+imap / <Plug>ZenCodingToggleComment
+imap i <Plug>ZenCodingImageSize
+imap N <Plug>ZenCodingPrev
+imap n <Plug>ZenCodingNext
+imap D <Plug>ZenCodingBalanceTagOutwardInsert
+imap d <Plug>ZenCodingBalanceTagInwardInsert
+imap ; <Plug>ZenCodingExpandWord
+inoremap $t <>i
+inoremap $e ""i
+inoremap $q ''i
+inoremap $4 {o}O
+inoremap $3 {}i
+inoremap $2 []i
+inoremap $1 ()i
+cnoremap $q eDeleteTillSlash()
+cnoremap $c e eCurrentFileDir("e")
+cnoremap $j e ./
+cnoremap $d e ~/Desktop/
+cnoremap $h e ~/
+vmap ½ $
+nmap ½ $
+omap ½ $
+vmap ë :m'<-2`>my`<mzgv`yo`z
+vmap ê :m'>+`<my`>mzgv`yo`z
+nmap ë mz:m-2`z
+nmap ê mz:m+`z
+iabbr xdate =strftime("%d/%m/%y %H:%M:%S")
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autochdir
+set autoindent
+set autoread
+set background=dark
+set backspace=eol,start,indent
+set cmdheight=2
+set completefunc=youcompleteme#Complete
+set completeopt=preview,menuone
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
+set fileformats=unix,dos,mac
+set grepprg=/bin/grep\ -nH
+set guifont=Inconsolata\ 12
+set guitablabel=%t
+set helplang=cn
+set hidden
+set history=700
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set listchars=tab:>\ ,trail:_
+set matchtime=2
+set nomodeline
+set printoptions=paper:a4
+set ruler
+set runtimepath=~/.vim,~/.vim/bundle/Hemisu,~/.vim/bundle/YouCompleteMe,~/.vim/bundle/desert.vim,~/.vim/bundle/jsbeautify,~/.vim/bundle/jshint.vim,~/.vim/bundle/mango.vim,~/.vim/bundle/mru,~/.vim/bundle/nerdtree,~/.vim/bundle/snipmate.vim,~/.vim/bundle/sudo.vim,~/.vim/bundle/syntastic,~/.vim/bundle/tabular,~/.vim/bundle/vim-colors-solarized,~/.vim/bundle/vim-css-color,~/.vim/bundle/vim-javascript,~/.vim/bundle/vim-less,~/.vim/bundle/vim-markdown,~/.vim/bundle/vim-powerline,~/.vim/bundle/vim-surround,~/.vim/bundle/yankring,~/.vim/bundle/zencoding-vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/bundle/snipmate.vim/after,~/.vim/bundle/tabular/after,~/.vim/bundle/vim-css-color/after,~/.vim/bundle/vim-markdown/after,~/.vim/after
+set scrolloff=7
+set shiftwidth=4
+set showmatch
+set showtabline=2
+set smartcase
+set smartindent
+set smarttab
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set noswapfile
+set switchbuf=usetab
+set tabstop=4
+set textwidth=80
+set timeoutlen=500
+set undodir=~/.vim/undodir
+set undofile
+set updatetime=2000
+set whichwrap=b,s,<,>,h,l
+set wildmenu
+set window=37
+set nowritebackup
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/vimrc/.vim/bundle/YouCompleteMe/autoload
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +0 ~/vimrc/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim
+args youcompleteme.vim
+edit ~/vimrc/.vim/bundle/YouCompleteMe/autoload/youcompleteme.vim
+set splitbelow splitright
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+argglobal
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf*\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=youcompleteme#Complete
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+set cursorcolumn
+setlocal cursorcolumn
+set cursorline
+setlocal cursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'vim'
+setlocal filetype=vim
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,:,#
+setlocal keywordprg=
+set linebreak
+setlocal linebreak
+setlocal nolisp
+set list
+setlocal list
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal nomodeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=zencoding#CompleteTag
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!Pl#Statusline(0,1)
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'vim'
+setlocal syntax=vim
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=80
+setlocal thesaurus=
+setlocal undofile
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 100 - ((7 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+100
+normal! 0
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
