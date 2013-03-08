@@ -73,3 +73,6 @@
 [submodule ".vim/bundle/delimitMate"]
 	path = .vim/bundle/delimitMate
 	url = git://github.com/Raimondi/delimitMate.git
+[submodule ".vim/bundle/PIV"]
+	path = .vim/bundle/PIV
+	url = https://github.com/spf13/PIV.git
