@@ -38,6 +38,7 @@ filetype plugin indent on
 "
 "  Revisions:
 "     > 0.1: Added revisions ;)
+"     > 0.2: Update a lot ;)
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -142,6 +143,7 @@ endif
 
 if has("gui_running")
   set guioptions-=T
+  set guioptions-=m
   set t_Co=256
   colorscheme nazca
   if MySys() == "mac"
@@ -712,7 +714,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_mode_map = {
     \ 'mode': 'active',
-    \ 'active_filetypes': ['php', 'html', 'javascript'],
-    \ 'passive_filetypes': ['css', 'less'] }
+    \ 'active_filetypes': ['php', 'javascript'],
+    \ 'passive_filetypes': ['css', 'less', 'html'] }
 " Ignore line-too-long errors with flake8
 let g:syntastic_python_checker_args = '--ignore=E501'
