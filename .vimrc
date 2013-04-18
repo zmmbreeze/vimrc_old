@@ -152,7 +152,7 @@ if has("gui_running")
   set nonu
 else
   syntax on
-  colorscheme desert256
+  colorscheme molokai
   set nonu
 endif
 
@@ -221,6 +221,9 @@ nmap <tab> 		v>
 nmap <s-tab> 	v<
 vmap <tab> 		>gv
 vmap <s-tab> 	<gv
+map <leader>t. :tabnext<cr>
+map <leader>t, :tabprevious<cr>
+
 
 "tab setting
 if has("gui_running")
