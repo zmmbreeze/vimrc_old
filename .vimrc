@@ -28,7 +28,7 @@ filetype plugin indent on
 "    -> MRU
 "    -> vim grep
 "    -> MISC
-"    -> Zencoding
+"    -> emmet
 "    -> Tabularize
 "    -> NERDTree
 "    -> Taglist-plus
@@ -137,7 +137,7 @@ if MySys() == "mac"
 elseif MySys() == "windows"
   set gfn=Bitstream\ Vera\ Sans\ Mono:h10
 elseif MySys() == "linux"
-  set gfn=Inconsolata\ 12
+  set gfn=Monaco\ 12
   set shell=/bin/bash
 endif
 
@@ -658,22 +658,20 @@ map <leader>bb :cd ..<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Zencoding
+" => emmet
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:user_zen_settings = {
-\  'indentation' : '  ',
-\  'perl' : {
-\    'aliases' : {
-\      'req' : 'require '
-\    },
-\    'snippets' : {
-\      'use' : "use strict\nuse warnings\n\n",
-\      'warn' : "warn \"|\";",
-\    }
-\  }
+let g:user_emmet_settings = {
+\  'php' : {
+\    'extends' : 'html',
+\    'filters' : 'c',
+\  },
+\  'xml' : {
+\    'extends' : 'html',
+\  },
+\  'haml' : {
+\    'extends' : 'html',
+\  },
 \}
-let g:user_zen_expandabbr_key = '<C-e>'
-let g:use_zen_complete_tag = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
