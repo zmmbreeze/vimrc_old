@@ -39,7 +39,7 @@
 	url = https://github.com/maksimr/vim-jsbeautify.git
 [submodule ".vim/bundle/jshint.vim"]
 	path = .vim/bundle/jshint.vim
-	url = git@github.com:zmmbreeze/jshint.vim.git
+	url = https://github.com/zmmbreeze/jshint.vim.git
 [submodule ".vim/bundle/vim-less"]
 	path = .vim/bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
