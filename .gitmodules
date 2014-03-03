@@ -79,3 +79,6 @@
 [submodule ".vim/bundle/vim-jade"]
 	path = .vim/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule ".vim/bundle/tern_for_sublime"]
+	path = .vim/bundle/tern_for_sublime
+	url = https://github.com/marijnh/tern_for_sublime.git

@@ -137,7 +137,7 @@ if MySys() == "mac"
 elseif MySys() == "windows"
   set gfn=Bitstream\ Vera\ Sans\ Mono:h10
 elseif MySys() == "linux"
-  set gfn=Monaco\ 12
+  set gfn=CosmicSansNeueMono\ 14
   set shell=/bin/bash
 endif
 
@@ -152,7 +152,7 @@ if has("gui_running")
   set nonu
 else
   syntax on
-  colorscheme molokai
+  colorscheme nazca
   set nonu
 endif
 
@@ -552,26 +552,6 @@ map <leader>p :cp<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => YouCompleteMe
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ycm_filetypes_to_completely_ignore = {
-  \ 'notes' : 1,
-  \ 'markdown' : 1,
-  \ 'text' : 1,
-  \}
-"let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
-let g:ycm_key_invoke_completion = '<c-q>'
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.'],
-  \   'objc' : ['->', '.'],
-  \   'cpp,objcpp' : ['->', '.', '::'],
-  \   'perl,php' : ['->'],
-  \   'cs,java,d,vim,ruby,python,perl6,scala,vb,elixir' : ['.'],
-  \   'lua' : ['.', ':'],
-  \   'erlang' : [':'],
-  \}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Pressing ,ss will toggle and untoggle spell checking
@@ -719,3 +699,4 @@ let g:syntastic_mode_map = {
     \ 'passive_filetypes': ['css', 'less', 'html'] }
 " Ignore line-too-long errors with flake8
 let g:syntastic_python_checker_args = '--ignore=E501'
+
