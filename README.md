@@ -10,3 +10,4 @@
 6. git submodule update --init --recursive
 7. 安装文件夹里面的字体
 8. 编译[YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+9. 安装[tern_for_vim](https://github.com/marijnh/tern_for_vim#installation)，实现javascript自动补全功能
